@@ -1,0 +1,11 @@
+version: '3'
+services:
+  jenkins-collector:
+    image: jenkins-collector:0.2
+    container_name: jenkins-collector0.2
+    restart: always
+    extra_hosts:
+    - mongodb4collectors.nbsdev.co.uk:10.10.84.83
+    environment:
+      - JENKINS_SERVER_0=http://snadash01:11a84852dd3f4567973544404543d7594e@dvsadevopsw01:8090/cloudbees-core-cm/
+      - JENKINS_CRON=0 0/5 * * * *
